@@ -11,6 +11,7 @@ public class Main {
     public static void inputPrompt(){
         System.out.println("================================================================");
         System.out.println("Provide the Filename with proper Extension! Enter 'exit' to halt.");
+        System.out.println("================================================================");
     }
     public static void main(String[] args) {
         inputPrompt();
@@ -28,7 +29,6 @@ public class Main {
                 System.out.println(e);
                 System.out.println("Wrong Keywords!");
             }
-
-            }
         }
     }
+}
