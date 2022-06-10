@@ -16,7 +16,8 @@ public class DeluxeBuilder implements BuilderInterface{
 
     @Override
     public void buildProcessor() {
-        product.addItem(new RaspberryPi());
+        for(int i=0; i<displayUnitNo; i++)
+            product.addItem(new RaspberryPi());
     }
 
     @Override

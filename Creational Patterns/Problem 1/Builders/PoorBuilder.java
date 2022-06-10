@@ -16,7 +16,8 @@ public class PoorBuilder implements BuilderInterface{
 
     @Override
     public void buildProcessor() {
-        product.addItem(new ATMega32());
+        for(int i=0; i<displayUnitNo; i++)
+            product.addItem(new ATMega32());
     }
 
     @Override

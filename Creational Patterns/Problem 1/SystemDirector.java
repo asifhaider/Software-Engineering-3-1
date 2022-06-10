@@ -9,6 +9,4 @@ public class SystemDirector {
         productBuilder.buildDisplay();
         productBuilder.buildCommChannel();
     }
-
-
 }

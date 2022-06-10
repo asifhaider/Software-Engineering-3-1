@@ -16,7 +16,8 @@ public class OptimalBuilder implements BuilderInterface{
 
     @Override
     public void buildProcessor() {
-        product.addItem(new ArduinoMega());
+        for(int i=0; i<displayUnitNo; i++)
+            product.addItem(new ArduinoMega());
     }
 
     @Override

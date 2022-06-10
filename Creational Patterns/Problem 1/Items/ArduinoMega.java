@@ -6,9 +6,9 @@ public class ArduinoMega extends Processor{
         return "Arduino Mega Processor";
     }
 
-
     @Override
     public double getPrice() {
         return 35.49;
     }
+
 }

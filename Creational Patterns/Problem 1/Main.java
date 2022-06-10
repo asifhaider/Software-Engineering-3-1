@@ -5,6 +5,7 @@
  */
 
 import Builders.*;
+import Factories.BuilderFactory;
 
 import java.util.Scanner;
 
@@ -23,8 +24,6 @@ public class Main {
     public static void main(String[] args) {
         inputPrompt();
         SystemDirector director = new SystemDirector();
-        BuilderInterface builder;
-        Product p;
         Scanner scn = new Scanner(System.in);
         while(scn.hasNextLine()){
             String input = scn.nextLine();
@@ -33,25 +32,13 @@ public class Main {
             else{
                 try{
                     String[] words = input.split(" ");
-                    if(words[0].equalsIgnoreCase("deluxe")){
-                        builder = new DeluxeBuilder(words[1], Integer.parseInt(words[2]));
-                        director.Construct(builder);
-                        p = builder.getProduct();
-                        p.show();
-                    } else if(words[0].equalsIgnoreCase("optimal")){
-                        builder = new OptimalBuilder(words[1], Integer.parseInt(words[2]));
-                        director.Construct(builder);
-                        p = builder.getProduct();
-                        p.show();
-                    } else if(words[0].equalsIgnoreCase("poor")) {
-                        builder = new PoorBuilder(words[1], Integer.parseInt(words[2]));
-                        director.Construct(builder);
-                        p = builder.getProduct();
-                        p.show();
-                    } else
-                        System.out.println("Invalid Sales Order Name");
-
-                } catch (Exception e){
+                    BuilderFactory builderFactory = new BuilderFactory();
+                    BuilderInterface builder = builderFactory.getBuilder(words);
+                    director.Construct(builder);
+                    Product product = builder.getProduct();
+                    product.show();
+                    }
+                catch (Exception e){
                     System.out.println("Invalid Input Keyword");
                 }
             }
